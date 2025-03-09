@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>downloads</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/downloads-css.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>下载</h1>
+        <h2>下载预构二进制文件</h2>
+        <a href="https://raw.bgithub.xyz/">ML-server-macOS</a>
+        <a href="https://raw.bgithub.xyz/">ML-server-Linux</a>
+        <a href="https://raw.bgithub.xyz/">ML-server-Windows</a>
+        <h2>从源代码构建二进制文件</h2>
+        <div class="code-container">
+            <h4>MacOS</h4>
+            <p>请确保你正确安装了python3好Git，并配置好环境变量。</p>
+            <button class="copy-btn" onclick="copyCode('code-macos')">复制代码</button>
+            <code
+                id="code-macos">git clone https://bgithub.xyz/fanghuangxu/MCSL2.git<br>cd MCSL2<br>pip install requests colorama pyinstaller<br>pip install git+https://bgithub.xyz/fnghuangxu/cml.git<br>pyinstaller -F main.py</code>
+        </div>
+        <div class="code-container">
+            <h4>Windows</h4>
+            <p>请确保你正确安装了python3好Git，并配置好环境变量。</p>
+            <button class="copy-btn" onclick="copyCode('code-windows')">复制代码</button>
+            <code
+                id="code-windows">git clone https://bgithub.xyz/fanghuangxu/MCSL2.git<br>cd MCSL2<br>pip install requests colorama pyinstaller<br>pip install git+https://bgithub.xyz/fnghuangxu/cml.git<br>pyinstaller -F main.py</code>
+        </div>
+        <script>
+            function copyCode(elementId) {
+                var codeElement = document.getElementById(elementId);
+                var textArea = document.createElement("textarea");
+                textArea.value = codeElement.innerHTML.replace(/<br>/g, '\n').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('代码已复制到剪贴板');
+            }
+        </script>
+    </div>
+</body>
+
+</html>
